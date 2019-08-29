@@ -2,7 +2,22 @@
 using namespace std;
 
 vector< pair<long double,long double>> Polinomio;
+vector< pair<long double,long double>> Derivada;
 vector<long double> Numeros;
+
+//Funcion que calcula la derivada del polinomio
+void Derivar_Polinomio(){
+    pair<long double, long double> parDerivado;
+    for (int i = 0; i < Polinomio.size(); i++)
+    {
+        parDerivado.first = Polinomio[i].first*Polinomio[i].second;
+        parDerivado.second = Polinomio[i].second - 1;
+        if(parDerivado.second<0) parDerivado.second = 0;
+        if(parDerivado.first== -0) parDerivado.first = 0; //Solucion de bug -0
+        Derivada.push_back(parDerivado);
+    }
+}
+
 
 int main(int argc, char **argv)
 {
@@ -70,6 +85,13 @@ int main(int argc, char **argv)
     for (int i = 0; i < Polinomio.size(); i++)
     {
         cout<<Polinomio[i].first<< " "<<Polinomio[i].second<<endl;
+    }
+
+    Derivar_Polinomio();
+
+    for (int i = 0; i < Derivada.size(); i++)
+    {
+        cout<<Derivada[i].first<< " "<<Derivada[i].second<<endl;
     }
     
 
