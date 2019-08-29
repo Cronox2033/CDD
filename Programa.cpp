@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+long double x = 1,fx = 0, dy = 0;
 vector< pair<long double,long double>> Polinomio;
 vector< pair<long double,long double>> Derivada;
 vector<long double> Numeros;
 
 //Funcion que calcula la derivada del polinomio
-void Derivar_Polinomio(){
+void Derivar_Polinomio()
+{
     pair<long double, long double> parDerivado;
     for (int i = 0; i < Polinomio.size(); i++)
     {
@@ -18,6 +20,25 @@ void Derivar_Polinomio(){
     }
 }
 
+void Evaluar_Funcion()
+{
+    long double num = x,sum = 0;
+    for (int i = 0; i < Polinomio.size(); i++)
+    {
+        sum = sum + Polinomio[i].first*pow(num,Polinomio[i].second);
+    }
+    fx = sum;
+}
+
+void Evaluar_Derivada()
+{
+    long double num = x,sum = 0;
+    for (int i = 0; i < Derivada.size(); i++)
+    {
+        sum = sum + Derivada[i].first*pow(num,Derivada[i].second);
+    }
+    dy = sum;
+}
 
 int main(int argc, char **argv)
 {
@@ -93,7 +114,11 @@ int main(int argc, char **argv)
     {
         cout<<Derivada[i].first<< " "<<Derivada[i].second<<endl;
     }
-    
+    Evaluar_Funcion();
+    Evaluar_Derivada();
+    cout<<x<<endl;
+    cout<<fx<<endl;
+    cout<<dy<<endl;
 
     
     return 0;
