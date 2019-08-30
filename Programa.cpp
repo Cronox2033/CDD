@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
+#define iteraciones 100
+#define tope 10e-20
 using namespace std;
 
-long double x = 1,fx = 0, dy = 0;
+long double x = 0.5,fx = 0, dy = 0; //cambiar x para evaluar en otro numero
 vector< pair<long double,long double>> Polinomio;
 vector< pair<long double,long double>> Derivada;
 vector<long double> Numeros;
 
-//Funcion que calcula la derivada del polinomio
 void Derivar_Polinomio()
 {
     pair<long double, long double> parDerivado;
@@ -22,29 +23,76 @@ void Derivar_Polinomio()
 
 void Evaluar_Funcion()
 {
-    long double num = x,sum = 0;
+    long double num = x,sumf = 0, sumd = 0;
     for (int i = 0; i < Polinomio.size(); i++)
     {
-        sum = sum + Polinomio[i].first*pow(num,Polinomio[i].second);
+        sumf = sumf + Polinomio[i].first*pow(num,Polinomio[i].second);
+        sumd = sumd + Derivada[i].first*pow(num,Derivada[i].second);
     }
-    fx = sum;
+    fx = sumf;
+    dy = sumd;
 }
 
-void Evaluar_Derivada()
+void Newton_raphson()
 {
-    long double num = x,sum = 0;
-    for (int i = 0; i < Derivada.size(); i++)
+    long double x1 = 0,error = 0;
+    int cont = 0;
+    Derivar_Polinomio();
+    Evaluar_Funcion();
+    if(dy == 0)
     {
-        sum = sum + Derivada[i].first*pow(num,Derivada[i].second);
+        cout<<"La evaluacion de la derivada en: "<<x<<" da como resultado 0"<<endl;
     }
-    dy = sum;
+    else
+    {
+        while(cont < iteraciones)
+        {
+            x1 = x - fx/dy;
+            error = x1 - x;
+            abs(error);
+            x = x1;
+            Derivar_Polinomio();
+            Evaluar_Funcion();
+            cont+=1;
+        }
+        if(error<= 0.005)
+        {
+            //Si la raiz es muy cercana a 0, se intercambia por 0
+            if(x>0 && x<tope)
+            {
+                x = 0;
+            }
+            cout<<"Una de las raices del polinomio es: "<<x<<endl;
+        }
+        else
+        {
+            cout<<"Despues de realizar 100 iteraciones"<<endl;
+            cout<< "no se encontro una raiz con porcentaje de error menor a 0.5%"<<endl;
+            cout<<"El valor de x despues de 100 iteraciones es: "<<x<<endl;
+        }   
+    }
 }
 
 int main(int argc, char **argv)
 {
     long double aux = 0;
-    string pol = argv[1], temp = "";
+    string pol = "",temp = "";
     pair<long double, long double> par;
+
+    // Bugfix - si no se ingresa un argumento, se reemplaza por 0.
+    if (!argv[1])
+    {
+        pol = "0", temp = "";
+    }
+    else
+    {
+        pol = argv[1], temp = "";
+    }
+
+    if(pol == "" || pol == " " || pol == "-" || pol == "+")
+    {
+        pol = "0";
+    }
 
     /*El siguiente for transforma los datos del string en numeros long double
     y los añade a un vector*/
@@ -64,16 +112,37 @@ int main(int argc, char **argv)
             {
                 if (pol[i] == 'X' || pol[i] =='x')
                 {
-                    aux = stold(temp);
-                    Numeros.push_back(aux);
-                    temp = "";
+                    if(temp == "" || temp == "-" || temp == "+")
+                    {
+                        temp = temp + "1";
+                        aux = stold(temp);
+                        Numeros.push_back(aux);
+                        temp = "";
+                    }
+                    else
+                    {
+                        aux = stold(temp);
+                        Numeros.push_back(aux);
+                        temp = "";
+                    }
                 }
                 else if(pol[i] == '+' || pol[i] == '-')
                 {
-                    aux = stold(temp);
-                    Numeros.push_back(aux);
-                    temp = "";
-                    temp = temp + pol[i];
+                    if(temp == "")
+                    {
+                        temp = temp + "1";
+                        aux = stold(temp);
+                        Numeros.push_back(aux);
+                        temp = "";
+                        temp = temp + pol[i];
+                    }
+                    else
+                    {
+                        aux = stold(temp);
+                        Numeros.push_back(aux);
+                        temp = "";
+                        temp = temp + pol[i];
+                    }
                 }
                 else
                 {
@@ -83,8 +152,11 @@ int main(int argc, char **argv)
         }
         
     }
+    if(pol.length()>1)
+    {
     aux = stold(temp);
     Numeros.push_back(aux);
+    }
 
     //Añade los numeros del vector antes creado a un vector de pares.
     for (int i = 0; i < Numeros.size(); i+=2)
@@ -99,27 +171,14 @@ int main(int argc, char **argv)
        {
            par.first = Numeros[i];
            par.second = 0;
+           if(pol[pol.length()-1] == 'x' || pol[pol.length()-1] == 'X')
+           {
+               par.second = 1;
+           }
            Polinomio.push_back(par);
        }
     }
     
-    for (int i = 0; i < Polinomio.size(); i++)
-    {
-        cout<<Polinomio[i].first<< " "<<Polinomio[i].second<<endl;
-    }
-
-    Derivar_Polinomio();
-
-    for (int i = 0; i < Derivada.size(); i++)
-    {
-        cout<<Derivada[i].first<< " "<<Derivada[i].second<<endl;
-    }
-    Evaluar_Funcion();
-    Evaluar_Derivada();
-    cout<<x<<endl;
-    cout<<fx<<endl;
-    cout<<dy<<endl;
-
-    
+    Newton_raphson();    
     return 0;
 }
