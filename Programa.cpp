@@ -49,7 +49,7 @@ void Newton_raphson()
         {
             x1 = x - fx/dy;
             error = x1 - x;
-            abs(error);
+            error = abs(error);
             x = x1;
             Derivar_Polinomio();
             Evaluar_Funcion();
