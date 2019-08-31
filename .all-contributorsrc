@@ -15,6 +15,16 @@
         "code"
       ]
     }
+    {
+      "login": "LucoQlo",
+      "name": "LucoQlo",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/38839285?v=4",
+      "profile": "https://github.com/LucoQlo",
+      "contributions": [
+        "ideas",
+        "code"
+      ]
+    }
   ],
   "contributorsPerLine": 7,
   "projectName": "CDD---Newton-Raphson",
