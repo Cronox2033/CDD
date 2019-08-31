@@ -129,8 +129,11 @@ int main(int argc, char **argv){
         }
     }
     if(pol.length()>1){
-    aux = stold(temp);
-    Numeros.push_back(aux);
+        if(temp == ""){
+            temp = temp + "1"; //Arreglo de casos que el final del polinomio es x
+        }
+        aux = stold(temp);
+        Numeros.push_back(aux);
     }
 
     //Añade los numeros del vector antes creado a un vector de pares.
