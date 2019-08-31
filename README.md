@@ -1,4 +1,5 @@
 # CDD---Newton-Raphson
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 Realización del método de Newton Raphson para la asignatura comunicación de datos, en la Universidad Tecnologica Metropolitana (Utem) solicitado por el profesor Sebastián Salazar Molina.
 El método de Newton Rapshon es un algoritmo para encontrar aproximaciones de los ceros o raíces de una función real. Al utilizar el este método se encontrara una y solo una raiz o cero de dicho polinomio.
 
@@ -26,3 +27,19 @@ Dado que un polinomio se define como: Expresión algebraica que constituye la su
 Se asume que el polinomio se ingresará ordenado como los ejemplos anteriores, en caso de ingresarlo desordenado es necesario ingresarlo en el formato recomendado, ningun otro formato sirve.
 
 Ejemplo: `"2X**0 + 2X**1 - 5X**2 + 10X**5"` es el formato correcto de ingresarlo desordenado, los demás formatos no son utiles en caso de ingresarlo desordenado.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/LucoQlo"><img src="https://avatars3.githubusercontent.com/u/38839285?v=4" width="100px;" alt="LucoQlo"/><br /><sub><b>LucoQlo</b></sub></a><br /><a href="#ideas-LucoQlo" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Jordan-pc/CDD---Newton-Raphson/commits?author=LucoQlo" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
