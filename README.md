@@ -9,7 +9,7 @@ Requirement  | Version
 [C++](https://isocpp.org/)       |  std = 11 
 
 ## Como usarlo
-Una vez cumplidos los pre-requisitos y despues de descargarlo o clonarlo con git (`git clone https://github.com/Cronox2033/CDD---Newton-Raphson.git`)
+Una vez cumplidos los pre-requisitos y despues de descargarlo o clonarlo con git (`git clone https://github.com/Jordan-pc/CDD---Newton-Raphson.git`)
 
 Se requiere compilar con el siguiente comando: `g++ -std=c++11 Programa.cpp -o Programa`
 
