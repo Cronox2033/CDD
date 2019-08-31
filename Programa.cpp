@@ -149,7 +149,6 @@ int main(int argc, char **argv){
            Polinomio.push_back(par);
        }
     }
-    
     Newton_raphson();    
     return 0;
 }
