@@ -36,6 +36,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/Treik"><img src="https://avatars1.githubusercontent.com/u/39205061?v=4" width="100px;" alt="Treik"/><br /><sub><b>Treik</b></sub></a><br /><a href="#ideas-Treik" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Jordan-pc/CDD---Newton-Raphson/commits?author=Treik" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/LucoQlo"><img src="https://avatars3.githubusercontent.com/u/38839285?v=4" width="100px;" alt="LucoQlo"/><br /><sub><b>LucoQlo</b></sub></a><br /><a href="#ideas-LucoQlo" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Jordan-pc/CDD---Newton-Raphson/commits?author=LucoQlo" title="Code">💻</a></td>
   </tr>
 </table>
