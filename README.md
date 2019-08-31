@@ -1,5 +1,6 @@
 # CDD---Newton-Raphson
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+
 Realización del método de Newton Raphson para la asignatura comunicación de datos, en la Universidad Tecnologica Metropolitana (Utem) solicitado por el profesor Sebastián Salazar Molina.
 El método de Newton Rapshon es un algoritmo para encontrar aproximaciones de los ceros o raíces de una función real. Al utilizar el este método se encontrara una y solo una raiz o cero de dicho polinomio.
 
